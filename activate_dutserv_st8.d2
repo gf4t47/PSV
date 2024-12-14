@@ -1,0 +1,68 @@
+# direction: down
+
+vars {
+    DutServ: Dut Serv
+}
+
+classes {
+    ConnLable: {
+        style: {
+            font-size: 20
+            font-color: black
+        }
+    }
+}
+
+SST {
+    # near: top-left
+    
+    label: "SST Slot"
+    grid-rows: 2
+
+    PDB: "PDB" {
+        grid-rows: 2
+
+        SBC1: SBC {
+            DutServ: ${DutServ}
+        }
+        SBC2: SBC {
+            DutServ: ${DutServ}
+        }
+        SBC3: SBC{
+            DutServ: ${DutServ}
+        }
+        SBC4: SBC{
+            DutServ: ${DutServ}
+        }
+    }
+
+    TIB: "TIB" {
+        grid-rows: 2
+
+        DUT1: DUT
+        DUT2: DUT
+        DUT3: DUT
+        DUT4: DUT
+        DUT5: DUT
+        DUT6: DUT
+        DUT7: DUT
+        DUT8: DUT
+    }   
+}
+
+WS: Windows Workstation  {
+    # near: top-right
+    ActivATE
+}
+
+LS: Linux Workstation {
+    DutServ: ${DutServ}
+    ST8: SmartTest8
+}
+
+Moonraker: {
+    COM
+}
+
+SST.TIB.DUT8 <- SST.PDB.SBC4.DutServ <- WS.ActivATE : normal test { class: ConnLable }
+SST.TIB.DUT8 <- Moonraker.COM <- LS.ST8 <- LS.DutServ <- WS.ActivATE : debug test { class: ConnLable }
