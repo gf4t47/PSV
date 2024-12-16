@@ -1,4 +1,4 @@
-# direction: down
+direction: right
 
 vars {
     DutServ: Dut Serv
@@ -11,16 +11,25 @@ classes {
             font-color: black
         }
     }
+
+    ConnLine: {
+        style: {
+            font-color: purple
+            stroke: red
+        }
+    }
 }
 
 SST {
     # near: top-left
     
     label: "SST Slot"
-    grid-rows: 2
+    # grid-rows: 2
+    grid-columns: 2
 
     PDB: "PDB" {
-        grid-rows: 2
+        # grid-rows: 2
+        grid-columns: 2
 
         SBC1: SBC {
             DutServ: ${DutServ}
@@ -37,7 +46,8 @@ SST {
     }
 
     TIB: "TIB" {
-        grid-rows: 2
+        # grid-rows: 2
+        grid-columns: 2
 
         DUT1: DUT
         DUT2: DUT
@@ -51,19 +61,22 @@ SST {
 }
 
 WS: Windows Workstation  {
-    # near: top-right
+    # near: bottom-left
     ActivATE
 }
 
 LS: Linux Workstation {
+    # direction: up
+    # near: bottom-right
     ASV
-    ST8: SmartTest8
+    ST8: SmartTest8    
 }
 
 Moonraker: {
+    near: top-right
     COM
 }
 
 SST.TIB.DUT8 <- SST.PDB.SBC4.DutServ <- WS.ActivATE : normal test { class: ConnLable }
-LS.ASV <- WS.ActivATE: Http Request { class: ConnLable }
-SST.TIB.DUT8 <- Moonraker.COM <- LS.ST8 <- LS.ASV: debug test { class: ConnLable }
+LS.ASV <- WS.ActivATE: Http Request { class: [ConnLable; ConnLine] }
+SST.TIB.DUT8 <- Moonraker.COM <- LS.ST8 <- LS.ASV: debug test { class: [ConnLable; ConnLine] }
