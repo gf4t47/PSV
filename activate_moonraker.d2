@@ -5,7 +5,7 @@ vars {
 }
 
 classes {
-    ConnLable: {
+    ConnLabel: {
         style: {
             font-size: 20
             font-color: black
@@ -20,10 +20,8 @@ classes {
     }
 }
 
-SST {
+SST: SST Slot {
     # near: top-left
-    
-    label: "SST Slot"
     # grid-rows: 2
     grid-columns: 2
 
@@ -69,5 +67,5 @@ Moonraker: {
     COM
 }
 
-SST.TIB.DUT8 <- SST.PDB.SBC4.DutServ <- WS.ActivATE : normal test { class: ConnLable }
-SST.TIB.DUT8 <- Moonraker.COM <- Moonraker.DutServ <- WS.ActivATE : debug test { class: [ConnLable; ConnLine] }
+SST.TIB.DUT8 <- SST.PDB.SBC4.DutServ <- WS.ActivATE : normal test { class: ConnLabel }
+SST.TIB.DUT8 <- Moonraker.COM <- Moonraker.DutServ <- WS.ActivATE : debug test { class: [ConnLabel; ConnLine] }
