@@ -1,0 +1,72 @@
+direction: right
+
+vars {
+    DutServ: Dut Serv {
+        shape: image
+        icon: https://icons.terrastruct.com/tech%2F069-hard-drive.svg
+    }
+
+    Dut: {
+        icon: https://icons.terrastruct.com/aws%2FInternet%20of%20Things%2FIoT_Alexa-enabled-device_light-bg.svg
+    }
+}
+
+classes {
+    ConnLabel: {
+        style: {
+            font-size: 20
+            font-color: black
+        }
+    }
+
+    ConnLine: {
+        style: {
+            font-color: purple
+            stroke: red
+        }
+    }
+}
+
+User1: Unified User {
+    near: top-left
+    shape: person
+}
+
+SLT: Windows Workstation  {
+    ActivATE {
+        icon: https://icons.terrastruct.com/tech%2Fdesktop.svg
+    }
+}
+
+DDB: SLT Developer Debug Board {
+    # grid-rows: 2
+
+    SBC: SBC/COM {
+        DutServ: ${DutServ}
+    }
+
+    DUTs: "" {
+        grid-rows: 1
+        DUT1: ${Dut}
+        DUT2: ${Dut}
+        DUT3: ${Dut}
+        DUT4: ${Dut}
+    }
+}
+
+User1 -> SLT: SLT Test && Debug Test { class: ConnLabel}
+SLT -> DDB.SBC.DutServ -> DDB.DUTs.DUT4: SLT Test { class: ConnLabel}
+
+DS: ST8 Debug Solution {
+    # near: bottom-right
+    # grid-rows: 2
+
+    ST: "" {
+        shape: image
+        icon: https://icons.terrastruct.com/tech/022-server.svg
+        width: 300
+        height: 300
+    }
+}
+
+SLT -> DS.ST -> DDB.DUTs.DUT4: Debug Test  { class: [ConnLabel; ConnLine]}

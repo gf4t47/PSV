@@ -3,6 +3,8 @@ direction: right
 vars {
     DutServ: Dut Serv {
         shape: image
+        width: 24
+        height: 20
         icon: https://icons.terrastruct.com/tech%2F069-hard-drive.svg
     }
 
@@ -28,31 +30,91 @@ classes {
 }
 
 SST: SST Slot {   
-    near: top-left
+    # near: top-left
     # grid-rows: 2
     grid-columns: 2
 
     PDB: "PDB" {
         # grid-rows: 2
-        grid-columns: 2
+        grid-columns: 4
 
-        SBC1: SBC {
+        SBC1: "" {
             DutServ: ${DutServ}
         }
-        SBC2: SBC {
+        SBC2: "" {
             DutServ: ${DutServ}
         }
-        SBC3: SBC{
+        SBC3: ""{
             DutServ: ${DutServ}
         }
-        SBC4: SBC{
+        SBC4: "" {
+            DutServ: ${DutServ}
+        }
+        SBC5: "" {
+            DutServ: ${DutServ}
+        }
+        SBC6: "" {
+            DutServ: ${DutServ}
+        }
+        SBC7: "" {
+            DutServ: ${DutServ}
+        }
+        SBC8: "" {
+            DutServ: ${DutServ}
+        }
+        SBC9: "" {
+            DutServ: ${DutServ}
+        }
+        SBC10: "" {
+            DutServ: ${DutServ}
+        }
+        SBC11: "" {
+            DutServ: ${DutServ}
+        }
+        SBC12: "" {
+            DutServ: ${DutServ}
+        }
+        SBC13: "" {
+            DutServ: ${DutServ}
+        }
+        SBC14: "" {
+            DutServ: ${DutServ}
+        }
+        SBC15: "" {
+            DutServ: ${DutServ}
+        }
+        SBC16: "" {
+            DutServ: ${DutServ}
+        }
+        SBC17: "" {
+            DutServ: ${DutServ}
+        }
+        SBC18: "" {
+            DutServ: ${DutServ}
+        }
+        SBC19: "" {
+            DutServ: ${DutServ}
+        }
+        SBC20: "" {
+            DutServ: ${DutServ}
+        }
+        SBC21: "" {
+            DutServ: ${DutServ}
+        }
+        SBC22: "" {
+            DutServ: ${DutServ}
+        }
+        SBC23: "" {
+            DutServ: ${DutServ}
+        }
+        SBC24: "" {
             DutServ: ${DutServ}
         }
     }
 
     TIB: "TIB" {
         # grid-rows: 2
-        grid-columns: 2
+        grid-columns: 4
 
         DUT1: ${DUT}
         DUT2: ${DUT}
@@ -62,11 +124,28 @@ SST: SST Slot {
         DUT6: ${DUT}
         DUT7: ${DUT}
         DUT8: ${DUT}
+        DUT9: ${DUT}
+        DUT9: ${DUT}
+        DUT10: ${DUT}
+        DUT11: ${DUT}
+        DUT12: ${DUT}
+        DUT13: ${DUT}
+        DUT14: ${DUT}
+        DUT15: ${DUT}
+        DUT16: ${DUT}
+        DUT17: ${DUT}
+        DUT18: ${DUT}
+        DUT19: ${DUT}
+        DUT20: ${DUT}
+        DUT21: ${DUT}
+        DUT22: ${DUT}
+        DUT23: ${DUT}
+        DUT24: ${DUT}
     }   
 }
 
 WS: Windows Workstation  {
-    near: bottom-left
+    # near: bottom-left
     ActivATE {
         icon: https://icons.terrastruct.com/tech%2Fdesktop.svg
     }
@@ -92,6 +171,6 @@ DS: ST8 Debug Solution {
     }
 }
 
-SST.TIB.DUT8 <- SST.PDB.SBC4.DutServ <- WS.ActivATE : normal test { class: ConnLabel }
-SST.TIB.DUT8 <- DS.ST <- DS.Optional.DutServ <- WS.ActivATE: Debug Test { class: [ConnLabel; ConnLine] }
+SST.TIB.DUT24 <- SST.PDB.SBC24.DutServ <- WS.ActivATE : normal test { class: ConnLabel }
+SST.TIB.DUT24 <- DS.ST <- DS.Optional.DutServ <- WS.ActivATE: Debug Test { class: [ConnLabel; ConnLine] }
 
