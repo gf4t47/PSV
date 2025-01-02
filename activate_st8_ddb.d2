@@ -27,18 +27,24 @@ classes {
     }
 }
 
-User1: Unified User {
+User1: Unified SLT/ABI User {
+    style: {
+        font-size: 24
+        font-color: black
+    }
     near: top-left
     shape: person
 }
 
-SLT: Windows Workstation  {
+SLT: ActivATE Workstation  {
+    # near: bottom-left
     ActivATE {
         icon: https://icons.terrastruct.com/tech%2Fdesktop.svg
     }
 }
 
 DDB: SLT Developer Debug Board {
+    # near: top-right
     # grid-rows: 2
 
     SBC: SBC/COM {
@@ -54,19 +60,22 @@ DDB: SLT Developer Debug Board {
     }
 }
 
-User1 -> SLT: SLT Test && Debug Test { class: ConnLabel}
+User1 -> SLT: SLT Test && Debug Test { class: ConnLabel }
 SLT -> DDB.SBC.DutServ -> DDB.DUTs.DUT4: SLT Test { class: ConnLabel}
 
 DS: ST8 Debug Solution {
     # near: bottom-right
     # grid-rows: 2
-
+    
+    DutServ: ${DutServ}
+    
     ST: "" {
         shape: image
         icon: https://icons.terrastruct.com/tech/022-server.svg
-        width: 300
-        height: 300
+        width: 250
+        height: 250
     }
 }
 
-SLT -> DS.ST -> DDB.DUTs.DUT4: Debug Test  { class: [ConnLabel; ConnLine]}
+SLT -> DS.DutServ: Debug Test  { class: [ConnLabel; ConnLine]}
+DS.DutServ -> DS.ST -> DDB.DUTs.DUT4: Debug Test { class: [ConnLabel; ConnLine]}
