@@ -1,0 +1,66 @@
+direction: right
+
+vars {
+    DutServ: Dut Serv {
+        shape: image
+        icon: https://icons.terrastruct.com/tech%2F069-hard-drive.svg
+    }
+
+    Dut: {
+        icon: https://icons.terrastruct.com/aws%2FInternet%20of%20Things%2FIoT_Alexa-enabled-device_light-bg.svg
+    }
+}
+
+classes {
+    ConnLabel: {
+        style: {
+            font-size: 20
+            font-color: black
+        }
+    }
+
+    ConnLine: {
+        style: {
+            font-color: purple
+            stroke: red
+        }
+    }
+}
+
+User1: QC User {
+    # near: top-right
+    shape: person
+}
+
+SLT: ActivATE Workstation  {
+    ActivATE {
+        icon: https://icons.terrastruct.com/tech%2Fdesktop.svg
+    }
+}
+
+User1 -> SLT -> PSV.DutServ -> PSV.QC -> QC: Scan Test { class: ConnLabel}
+
+
+PSV: PSV Box {
+    # near: top-right
+    
+    shape: hexagon
+    # icon: https://icons.terrastruct.com/infra%2F002-backup.svg
+
+    DutServ: Dut Serv {
+        shape: image
+        icon: https://icons.terrastruct.com/tech%2F069-hard-drive.svg
+    }
+
+    QC: QC SW {
+        icon: https://icons.terrastruct.com/tech%2F014-cpu.svg
+    }
+
+
+}
+
+QC: QualComm Board {
+    shape: image
+    icon: https://icons.terrastruct.com/tech%2F012-cpu-2.svg
+}
+

@@ -152,6 +152,7 @@ WS: ActivATE Workstation  {
 }
 
 SMT8: SMT8 Workstation {
+    direction: down
     # near: bottom-right
     # grid-rows: 2
 
@@ -166,12 +167,6 @@ SMT8: SMT8 Workstation {
     }
 }
 
-PSV: PSV Box {
-    # near: top-right
-    shape: hexagon
-    icon: https://icons.terrastruct.com/infra%2F002-backup.svg
-}
-
 SST.TIB.DUT6 <- SST.PDB.SBC24.DutServ <- WS.ActivATE : normal test { class: ConnLabel }
-SST.TIB.DUT19 <- PSV <- SMT8.ST <- SMT8.DutServ <- WS.ActivATE: Debug Test { class: [ConnLabel; ConnLine] }
+SST.TIB.DUT1 <- SST.PDB.SBC19.DutServ <- SMT8.ST <- SMT8.DutServ <- WS.ActivATE: Debug Test { class: [ConnLabel; ConnLine] }
 

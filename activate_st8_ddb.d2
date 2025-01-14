@@ -38,7 +38,7 @@ User1: Unified SLT/ABI User {
 
 SLT: ActivATE Workstation  {
     # near: bottom-left
-    ActivATE {
+    ActivATE: ActivATE Dashboard {
         icon: https://icons.terrastruct.com/tech%2Fdesktop.svg
     }
 }
@@ -61,21 +61,28 @@ DDB: SLT Developer Debug Board {
 }
 
 User1 -> SLT: SLT Test && Debug Test { class: ConnLabel }
-SLT -> DDB.SBC.DutServ -> DDB.DUTs.DUT4: SLT Test { class: ConnLabel}
+SLT -> DDB.SBC.DutServ -> DDB.DUTs.DUT1: SLT Test { class: ConnLabel}
 
-DS: ST8 Debug Solution {
+SMT8: SMT8 Workstation {
     # near: bottom-right
     # grid-rows: 2
-    
-    # DutServ: ${DutServ}
-    
-    ST: "" {
+
+    ST: "SMT8 SW" {
         shape: image
         icon: https://icons.terrastruct.com/tech/022-server.svg
-        width: 250
-        height: 250
+    }
+
+    DutServ: Dut Serv {
+        shape: image
+        icon: https://icons.terrastruct.com/tech%2F069-hard-drive.svg
     }
 }
 
+PSV: PSV Box {
+    near: top-right
+    shape: hexagon
+    icon: https://icons.terrastruct.com/infra%2F002-backup.svg
+}
+
 # SLT -> DS.DutServ: Debug Test  { class: [ConnLabel; ConnLine]}
-SLT -> DS.ST -> DDB.DUTs.DUT4: Debug Test { class: [ConnLabel; ConnLine]}
+SLT -> SMT8.DutServ -> SMT8.ST -> PSV -> DDB.DUTs.DUT4: Debug Test { class: [ConnLabel; ConnLine]}

@@ -59,19 +59,23 @@ DDB: SLT Developer Debug Board {
     }
 }
 
-User2 -> SLT -> DDB.SBC.DutServ -> DDB.DUTs.DUT1: SLT Test { class: ConnLabel}
+User2 -> SLT -> DDB.SBC.DutServ -> DDB.DUTs.DUT4: SLT Test { class: ConnLabel}
 
 
-DS: ST8 Debug Solution {
+SMT8: SMT8 Workstation {
     # near: bottom-right
     # grid-rows: 2
 
-    ST: "" {
+    ST: "SMT8 SW" {
         shape: image
         icon: https://icons.terrastruct.com/tech/022-server.svg
-        width: 300
-        height: 300
     }
 }
 
-User1 -> DS.ST -> DDB.DUTs.DUT1: Debug Test  { class: [ConnLabel; ConnLine]}
+PSV: PSV Box {
+    # near: top-right
+    shape: hexagon
+    icon: https://icons.terrastruct.com/infra%2F002-backup.svg
+}
+
+User1 -> SMT8.ST -> PSV -> DDB.DUTs.DUT1: Debug Test  { class: [ConnLabel; ConnLine]}
