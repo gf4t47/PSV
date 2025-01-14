@@ -162,12 +162,12 @@ DS: ST8 Debug Solution {
         height: 300
     }
 
-    DutServ: Dut Serv {
-        shape: image
-        icon: https://icons.terrastruct.com/tech%2F069-hard-drive.svg
-    }
+    # DutServ: Dut Serv {
+    #     shape: image
+    #     icon: https://icons.terrastruct.com/tech%2F069-hard-drive.svg
+    # }
 }
 
 SST.TIB.DUT24 <- SST.PDB.SBC24.DutServ <- WS.ActivATE : normal test { class: ConnLabel }
-SST.TIB.DUT24 <- DS.ST <- DS.DutServ <- WS.ActivATE: Debug Test { class: [ConnLabel; ConnLine] }
+SST.TIB.DUT24 <- DS.ST <- WS.ActivATE: Debug Test { class: [ConnLabel; ConnLine] }
 

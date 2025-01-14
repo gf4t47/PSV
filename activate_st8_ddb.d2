@@ -67,7 +67,7 @@ DS: ST8 Debug Solution {
     # near: bottom-right
     # grid-rows: 2
     
-    DutServ: ${DutServ}
+    # DutServ: ${DutServ}
     
     ST: "" {
         shape: image
@@ -77,5 +77,5 @@ DS: ST8 Debug Solution {
     }
 }
 
-SLT -> DS.DutServ: Debug Test  { class: [ConnLabel; ConnLine]}
-DS.DutServ -> DS.ST -> DDB.DUTs.DUT4: Debug Test { class: [ConnLabel; ConnLine]}
+# SLT -> DS.DutServ: Debug Test  { class: [ConnLabel; ConnLine]}
+SLT -> DS.ST -> DDB.DUTs.DUT4: Debug Test { class: [ConnLabel; ConnLine]}
