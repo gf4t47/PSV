@@ -1,0 +1,105 @@
+direction: right
+
+vars {
+    DutServ: Dut Serv {
+        shape: image
+        icon: https://icons.terrastruct.com/tech%2Fbrowser-2.svg
+    }
+
+    Dut: {
+        icon: https://icons.terrastruct.com/tech%2F012-cpu-2.svg
+    }
+}
+
+classes {
+    ConnLabel: {
+        style: {
+            font-size: 20
+            font-color: black
+        }
+    }
+
+    ConnLine: {
+        style: {
+            font-color: purple
+            stroke: red
+        }
+    }
+}
+
+User1: QC User {
+    # near: top-right
+    shape: person
+}
+
+SLT: ActivATE Workstation  {
+    ActivATE {
+        icon: https://icons.terrastruct.com/tech%2Fdesktop.svg
+    }
+}
+
+User1 -> SLT -> DDB.SBC -> DDB.Duts.Dut1: Scan Test { class: ConnLabel}
+
+
+# PSV: PSV Box {
+#     # near: top-right
+#     # grid-columns: 2
+    
+#     shape: hexagon
+#     # icon: https://icons.terrastruct.com/infra%2F002-backup.svg
+
+#     DutServ: Dut Serv {
+#         shape: image
+#         icon: https://icons.terrastruct.com/tech%2Fbrowser-2.svg
+#     }
+
+#     QC: QC SW {
+#         shape: image
+#         icon: https://icons.terrastruct.com/tech%2F014-cpu.svg
+#     }
+# }
+
+SMT8: SMT8 Workstation {
+    # near: bottom-right
+    # grid-rows: 2
+    # 
+    Descrption: |md
+        ## SMT8 Running as pure backend Serv
+        - ActivATE Develop Front-End (UI)
+        - No UI / Eclispe in SMT8
+        - API calls only
+    |
+
+    ST: "SMT8 SW" {
+        shape: image
+        icon: https://icons.terrastruct.com/tech/022-server.svg
+    }
+}
+
+DDB: SLT Developer Debug Board {
+    # grid-rows: 2
+
+    SBC: SBC/COM {
+        grid-columns: 2
+        DutServ: ${DutServ}
+        QC: QC SW {
+            shape: image
+            icon: https://icons.terrastruct.com/tech%2F014-cpu.svg
+        }
+    }
+
+    DUTs: "" {
+        grid-rows: 1
+        DUT1: ${Dut}
+        DUT2: ${Dut}
+        DUT3: ${Dut}
+        DUT4: ${Dut}
+    }
+}
+
+# QC: QualComm Board {
+#     shape: image
+#     icon: https://icons.terrastruct.com/tech%2F012-cpu-2.svg
+# }
+
+SLT -> SMT8 : API call

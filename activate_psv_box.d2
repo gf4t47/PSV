@@ -27,7 +27,7 @@ classes {
     }
 }
 
-User1: QC User {
+User1: User {
     # near: top-right
     shape: person
 }
@@ -38,7 +38,7 @@ SLT: ActivATE Workstation  {
     }
 }
 
-User1 -> SLT -> PSV.DutServ -> PSV.QC -> QC: Scan Test { class: ConnLabel}
+User1 -> SLT -> PSV.DutServ -> PSV.QC -> QC: Debug Test { class: ConnLabel}
 
 
 PSV: PSV Box {
@@ -47,19 +47,20 @@ PSV: PSV Box {
     shape: hexagon
     # icon: https://icons.terrastruct.com/infra%2F002-backup.svg
 
-    DutServ: Dut Serv {
+    DutServ: Device360 ("dut-svr") {
         shape: image
-        icon: https://icons.terrastruct.com/tech%2F069-hard-drive.svg
+        icon: https://icons.terrastruct.com/tech%2Fbrowser-2.svg
     }
 
-    QC: QC SW {
+    QC: Customer Binaries {
+        shape: image
         icon: https://icons.terrastruct.com/tech%2F014-cpu.svg
     }
 
 
 }
 
-QC: QualComm Board {
+QC: Customer Board {
     shape: image
     icon: https://icons.terrastruct.com/tech%2F012-cpu-2.svg
 }

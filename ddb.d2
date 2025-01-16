@@ -72,10 +72,10 @@ SMT8: SMT8 Workstation {
     }
 }
 
-PSV: PSV Box {
-    # near: top-right
-    shape: hexagon
-    icon: https://icons.terrastruct.com/infra%2F002-backup.svg
-}
+# PSV: PSV Box {
+#     # near: top-right
+#     shape: hexagon
+#     icon: https://icons.terrastruct.com/infra%2F002-backup.svg
+# }
 
-User1 -> SMT8.ST -> PSV -> DDB.DUTs.DUT1: Debug Test  { class: [ConnLabel; ConnLine]}
+User1 -> SMT8.ST -> DDB.SBC.DutServ -> DDB.DUTs.DUT1: Debug Test  { class: [ConnLabel; ConnLine]}
